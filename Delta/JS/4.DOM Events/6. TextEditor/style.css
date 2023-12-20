@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+p {
+    background-color: grey;
+    padding: 1%;
+    text-align: center;
+}
+
+textarea {
+    text-align: center;
+}

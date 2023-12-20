@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="specificity.css">
+    <style>
+        .important{
+            color: blue !important; <!-- important have more preference than inline css -->
+            font-size: 56px;
+        }
+        ul#summer-drinks li.favorite{
+            color:red;
+            font-weight: bold;
+        }
+        ul#summer-drinks li {
+            font-size: 16px;
+            font-weight: normal;
+            color: black;
+        }
+        body{
+            color: red;
+        }
+        .class-1 a{
+            color: inherit;
+        }
+        .class-2 a{
+            color: unset;
+        }
+    </style>
+    <title>Specificity</title>
+</head>
+<body>
+
+    <br>
+    <!--inline css used but due to important more prefernce in inside css given-->
+    <div class="important" style="color: red;">this is a red color</div>
+    <br>
+    <ul id="summer-drinks">
+        <li>Mountain Dew</li>
+        <li class="favorite">Appy Fizz</li>
+        <li>Jeeru</li>
+    </ul><br><br><br><hr><br><br>
+
+    <ul>
+        <li>Default <a href="#"> Link </a> property</li>
+        <li class="class-1">inherited <a href="#">Link </a> property</li>
+        <li class="class-2">unset <a href="#"> Link </a> property</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Box</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            padding: 20px 30px;
+            line-height: 1.4;
+            border: 2px solid black;
+        }
+        .flex-container{
+            display: flex;
+            /* flex-wrap: wrap; */
+            width: 100%;
+            height: 500px;
+            align-content: space-between;
+            /* stretch, flex-start,flex-end,center,baseline,space-around,space item */
+        }
+        .flex-item{
+            width: 75px;
+            height: 75px;
+            background-color: lightskyblue;
+            border: 2px solid darkblue;
+            text-align: center;
+            font-size: 2em;
+            color: white;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        #flex-item-1{
+            /* flex-basis: 200px; */
+            /* maximum width of box will be 200px. it may be small but not bigger tha 200px */
+            flex-grow: 2;
+            /* size of box will relatively bigger than 2X always at all condition */
+            background-color: lightpink;
+            align-self: center;
+            /* child element align */
+        }
+        #flex-item-2{
+            /* flex-grow: 3; */
+            flex-shrink: 2;
+            /* size of box relatively smaller than other. shrink at 2X speed */
+            background-color: lightskyblue;
+        }
+        #flex-item-3{
+            background-color: lightgreen;
+            order: 5;
+            /* order of item-3 will change to 5. high value of order that will display in last */
+        }
+        #flex-item-4{
+            background-color: darkkhaki;
+        }
+        #flex-item-5{
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item" id="flex-item-1">1</div>
+        <div class="flex-item" id="flex-item-2">2</div>
+        <div class="flex-item" id="flex-item-3">3</div>
+        <div class="flex-item" id="flex-item-4">4</div>
+        <div class="flex-item" id="flex-item-5">5</div>
+    </div>
+</body>
+</html>

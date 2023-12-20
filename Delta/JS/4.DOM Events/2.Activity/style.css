@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+    background-color: pink;
+    padding-top: 100px;
+}
+
+div {
+    height: 100px;
+    width: 500px;
+    border: 1px solid black;
+    margin: auto;
+}

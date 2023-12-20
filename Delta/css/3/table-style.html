@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Style</title>
+    <style>
+        table{
+            margin: 50px;
+        }
+        table,th,td,tr{
+            text-align: center;
+            color: blue;
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            border-spacing: 5px;
+        }
+        th{
+            background-color: rgba(223, 223, 19, 0.849);
+        }
+        td{
+            background-color: aqua;
+        }
+    </style>
+</head>
+ <body>
+    <Table>
+        <thead>
+            <tr>    <!--tr for new row-->
+                <th>subject</th>    <!--th use for heading-->
+                <th>theory</th>
+                <th>practical</th>
+                <th>Total Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mathematics</td>    <!--td for content NO BOLD-->
+                <td>50</td>
+                <td>30</td>
+                <td align="center">80</td>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td>40</td>
+                <td>25</td>
+                <td align="center">65</td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>55</td>
+                <td>35</td>
+                <td align="center">90</td>
+            </tr>
+            <tr>
+                <td>Biology</td>
+                <td>60</td>
+                <td>40</td>
+                <td align="center">100</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">MARKS</th>
+                <td>335</td>
+            </tr>
+            <tr>
+                <th colspan="4" align="center">PASS</th>
+            </tr>
+        </tfoot>
+    </Table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body {
+    background-color: gray;
+}
+
+h3 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.display {
+    text-align: center;
+    font-size: 45px;
+}
+
+.MainFrame {
+    height: 200px;
+    width: 1300px;
+    background-color: white;
+    padding: 1%;
+    margin: 10px;
+}
+
+.column1{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.column2 {
+    display: flex;
+    position: initial;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#btn {
+    height: 30px;
+    width: 30px;
+    background-color: pink;
+    padding: 1%;
+    margin: 5px;
+}

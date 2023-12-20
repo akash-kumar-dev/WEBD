@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+#dog-picture {
+    margin: 13px;
+    height: 300px;
+    width: 300px;
+    position: inherit;
+}
+ul {
+    text-align: center;
+    position: absolute;
+}
