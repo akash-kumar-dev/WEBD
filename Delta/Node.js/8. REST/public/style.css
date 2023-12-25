@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    color: maroon;
+}
+
+div{
+    background-color: aquamarine;
+    padding: 5%;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.user {
+    font-style: italic;
+}
