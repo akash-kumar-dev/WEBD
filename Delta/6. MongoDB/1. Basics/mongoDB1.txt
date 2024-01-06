@@ -1,0 +1,90 @@
+test> show dbs	// show saved Databaes
+	admin   40.00 KiB
+	config  12.00 KiB
+	local   72.00 KiB
+
+test> use college	// to create and use new database called 'college'
+	switched to db college
+
+college> db	// to show current working database name
+	college
+
+college> show dbs	// All dbs created in mongoDB is temporary while DB have no any Data
+	admin   40.00 KiB
+	config  60.00 KiB
+	local   72.00 KiB
+
+college> show collections	//to show all Collections in DB
+
+
+// Insertind Data in mongoDB by .insertOne()
+college> db.student.insertOne({name: "adam", age: 24, marks: 97});
+	{
+	  acknowledged: true,
+	  insertedId: ObjectId('6598e3499b55ac9a752fd182')
+	}
+
+// to show all sotred data in collection student
+college> db.student.find()
+	[
+	  {
+	    _id: ObjectId('6598e3499b55ac9a752fd182'),
+	    name: 'adam',
+	    age: 24,
+	    marks: 97
+	  }
+	]
+
+// insert data by .insertMany()
+college> db.student.inertMany([ { data1 }, { data2 } ]);
+
+// Find in DB
+college> db.student.find({city: "Delhi"});	// returns a cursor (reference to original)
+
+college> db.student.find({city: "Delhi", name: "bob"});
+
+college> db.student.findOne({city: "Delhi", name: "bob"});	// Returns actual Document
+
+
+// Query and Projection Operators
+
+// find students where marks > 95
+college> db.student.find( { marks: { $gt: 95 } } )
+
+// find students who lives in Delhi or Mumbai
+college> db.student.find( { city: { $in: ["Delhi", "Mumbai"] } } )
+
+// find students who scored > 75 or live in Delhi
+college> db.student.find( {$or: [{marks: {$gt: 75}}, {city: "Delhi"}]} )
+
+
+// Update in DB
+// db.collection.updateOne( <filter>, <update>, <option> )
+
+
+college> db.student.updateOne( {name: "adam"}, {$set: {marks: 72}} )
+
+college> db.student.updateMany( {city: "Delhi"}, {$set: {city: "New Delhi"}} )
+
+college> db.student.replaceOne( {name: "bob"}, {name: "bob", city: "Punjab", marks: 87} )
+
+
+
+// Nesting
+college> db.student.insertOne( {name: "farah", performance: {marks: 88, grade: "A"}} )
+
+college> db.student.findOne( {"performance.marks": 88} )	// to find with nested key
+
+
+
+// Delete in DB
+
+college> db.student.deleteOne( {state: "punjab"} )
+
+college> db.student.deleteMany( {marks: {$lt: 75}} )
+
+// delete all Data from DB
+college> db.student.deleteMany( {} )
+
+// Delete current working Database
+college> db.dropDatabase()
