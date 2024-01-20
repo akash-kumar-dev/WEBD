@@ -5,6 +5,7 @@ const path = require("path");
 const port = 4567;
 const Chat = require("./models/chat.js");
 const methodOverride = require("method-override");
+const ExpressError = require("./ExpressError.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -34,6 +35,8 @@ app.get("/chats", async (req, res) => {
 
 // New Route
 app.get("/chats/new", (req, res) => {
+    // throw new ExpressError(404, "Page NOT found");
+    // throwing error with non async function
     res.render("new.ejs");
 })
 
@@ -80,6 +83,23 @@ app.delete("/chats/:id", async (req, res) => {
     let deletedChat = await Chat.findByIdAndDelete(id);
     console.log(deletedChat);
     res.redirect("/chats");
+});
+
+// New - show Route
+app.get("/chats/:id", async (req, res, next) => {
+    let { id } = req.params;
+    let chat = await Chat.findById(id);
+    if(!chat) {
+        // throw new ExpressError(404, "Chat not found");  // in async error Express By default not calling to next
+        return next(new ExpressError(404, "Chat not found"));
+    }
+    res.render("edit.ejs", { chat });
+});
+
+// error handling middleware
+app.use((err, req, res, next) => {
+    let { status = 500, message = "Some error Occured" } = err;
+    res.status(status).send(message);
 });
 
 app.listen(port, () => {
