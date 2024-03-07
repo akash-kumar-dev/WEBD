@@ -12,8 +12,8 @@ const listingSchema = new mongoose.Schema({
         type: String,
         default: "https://images.unsplash.com/photo-1704574155820-47a04256005d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D",
         set: (v) => v === ""
-        ? "https://images.unsplash.com/photo-1704574155820-47a04256005d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"
-        : v,
+            ? "https://images.unsplash.com/photo-1704574155820-47a04256005d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"
+            : v,
     },
     price: Number,
     location: String,
@@ -23,12 +23,16 @@ const listingSchema = new mongoose.Schema({
             type: Schema.Types.ObjectId,
             ref: "Review",
         }
-    ]
+    ],
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
-    if(listing) {
-        await Review.deleteMany({_id: {$in: listing.reviews}});
+    if (listing) {
+        await Review.deleteMany({ _id: { $in: listing.reviews } });
     }
 });
 
