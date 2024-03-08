@@ -19,7 +19,12 @@ router.get("/new", isLoggedIn, (req, res) => {
 router.get("/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id)
-        .populate("reviews")
+        .populate({
+            path: "reviews",
+            populate: {
+                path: "author",
+            },
+        })
         .populate("owner");
     if (!listing) {
         req.flash("error", "Listing you requested for does not exist!");
@@ -68,11 +73,11 @@ router.delete("/:id",
     isLoggedIn,
     isOwner,
     wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let deletedList = await Listing.findByIdAndDelete(id);
-    console.log(deletedList);
-    req.flash("success", "Listing Delated!");
-    res.redirect("/listings");
-}));
+        let { id } = req.params;
+        let deletedList = await Listing.findByIdAndDelete(id);
+        console.log(deletedList);
+        req.flash("success", "Listing Delated!");
+        res.redirect("/listings");
+    }));
 
 module.exports = router;

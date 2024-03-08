@@ -4,16 +4,19 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const Review = require("../models/review.js");
 const Listing = require("../models/listing.js");
-const { validateReview } = require("../middleware.js");
+const { validateReview, isLoggedIn, isReviewAuthor } = require("../middleware.js");
 
 
 
 // Reviews
 //  Post route
-router.post("/", validateReview, wrapAsync(async (req, res) => {
+router.post("/",
+    isLoggedIn,
+    validateReview,
+    wrapAsync(async (req, res) => {
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
-
+    newReview.author = req.user._id;
     listing.reviews.push(newReview);
 
     await newReview.save();
@@ -24,13 +27,16 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
 }));
 
 // Delete Review route
-router.delete("/:reviewId", wrapAsync(async (req, res) => {
+router.delete("/:reviewId",
+    isLoggedIn,
+    isReviewAuthor,
+    wrapAsync(async (req, res) => {
     let { id, reviewId } = req.params;
 
     await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     // pull Operator removes from an existing array all instances of a values that match a specified condition
     await Review.findByIdAndDelete(reviewId);
-    req.flash("success", "Review Delated!");
+    req.flash("success", "Review Deleted!");
     res.redirect(`/listings/${id}`);
 }));
 
