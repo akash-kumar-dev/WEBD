@@ -1,0 +1,5 @@
+for creating a React Project
+
+$ npm create vite@latest
+$ npm install
+$ npm run dev
