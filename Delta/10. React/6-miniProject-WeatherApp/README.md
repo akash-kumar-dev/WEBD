@@ -14,6 +14,10 @@ Material UI is an open-source React component library that implements Google's M
 It includes a comprehensive collection of prebuilt components that are ready for use in production right out of the box, and features a suite of customization options that make it easy to implement your own custom design system on top of our components.
 
 Install Material UI, the world's most popular React UI framework.
+
+https://mui.com/material-ui/getting-started/
+
+
 npm install @mui/material @emotion/react @emotion/styled
 npm install @fontsource/roboto
 npm install @mui/icons-material
@@ -22,3 +26,6 @@ npm install @mui/icons-material
 ~ API used 
 https://openweathermap.org/current
 https://openweathermap.org/api/geocoding-api    -> (Supporting API calls by geographical coordinates)
+
+
+https://unsplash.com/       ->      images
