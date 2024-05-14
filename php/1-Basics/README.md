@@ -7,3 +7,7 @@
 3. String
 4. Operators
 5. if else and switch
+6. loops (while, for, doWhile, foreach)
+7. functions, Date and Time Functions
+8. Arrays (Associative arrays, MultiDimensional Array)
+9. Variables scope (Local and Global)
