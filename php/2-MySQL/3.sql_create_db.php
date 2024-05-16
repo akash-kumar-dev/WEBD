@@ -13,7 +13,7 @@ if (!$conn) {
 }
 
 // create a DB
-$sql = "CREATE DATABASE php3";
+$sql = "CREATE DATABASE php";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
