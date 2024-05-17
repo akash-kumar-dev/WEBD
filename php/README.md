@@ -2,4 +2,6 @@
 
 ## 1. Basics
 
-## 2. MySQL
+## 2. MySQL:
+
+    crud operations
