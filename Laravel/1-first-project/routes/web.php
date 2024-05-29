@@ -57,3 +57,28 @@ Route::get('/users2/{id}', function (string $id) {
 Route::get('/posts2/{id}/comment/{commentid}', function (string $id, string $comment) {
     return "<h1>Post ID : " . $id . "</h1><h2>Comment ID : " . "$comment" . "</h2>";
 })->where('id', '[0-9]+')->whereAlpha('commentid'); // id for integer only and comments for Alphabates only
+
+// Named Routes
+Route::get('/about', function () {
+    return view('about');
+})->name('mypost');
+// no effect of change the URL of Route
+
+// Redirect
+// Route::redirect('/test', '/about');     // /test route redirects to /about route
+Route::redirect('/test', '/about', 301);    // 301 Status Code for Permanent Redirect
+
+// Route Group
+Route::prefix('page')->group(function () {
+    Route::get('/about', function () {
+        return "<h1>About</h1>";        // /page/about
+    });
+    Route::get('/post/firstpost', function () {
+        return "<h1>First Post</h1>";        // /page/post/firstpost
+    });
+});
+
+// 404 Page
+Route::fallback(function(){
+    return "<h1>Page Not Found.</h1>";
+});
