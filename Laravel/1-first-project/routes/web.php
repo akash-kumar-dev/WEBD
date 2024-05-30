@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use PhpOffice\PhpSpreadsheet\Chart\Layout;
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,6 +80,17 @@ Route::prefix('page')->group(function () {
 });
 
 // 404 Page
-Route::fallback(function(){
+Route::fallback(function () {
     return "<h1>Page Not Found.</h1>";
+});
+
+
+Route::prefix('/new/home')->group(function () {
+    Route::get('/', function () {
+        return view('newPages.home');
+    })->name('newHome');
+
+    Route::get('/about', function () {
+        return view('newPages.about');
+    })->name('newAbout');
 });

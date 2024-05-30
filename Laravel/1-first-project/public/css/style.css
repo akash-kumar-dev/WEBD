@@ -1,0 +1,21 @@
+.div1{
+    text-align: center;
+    height: 500px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: aqua;
+}
+
+.mainD{
+    display: flex;
+    justify-content: center;
+}
+
+.div2{
+    height: 500px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: yellow;
+}
