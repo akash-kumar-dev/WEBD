@@ -18,3 +18,19 @@
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores at nam sunt. Perspiciatis aspernatur harum porro
         deserunt, suscipit impedit eaque?</p>
 @endsection
+
+
+@push('scripts')
+    <script src="/example.js"></script>
+@endpush
+
+@push('scripts')
+    <script src="/bootstrap.js"></script>
+@endpush
+
+{{-- by @yield single @section can be added only but by @stack multiple @push can be added on same stack place  --}}
+
+@prepend('style')
+    <script src="/test.js"></script>
+@endprepend
+{{-- Append this before 'style' stack/yield --}}

@@ -94,3 +94,7 @@ Route::prefix('/new/home')->group(function () {
         return view('newPages.about');
     })->name('newAbout');
 });
+
+Route::get('/js/test', function () {
+    return view('jsTest');
+});
