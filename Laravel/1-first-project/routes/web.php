@@ -98,3 +98,39 @@ Route::prefix('/new/home')->group(function () {
 Route::get('/js/test', function () {
     return view('jsTest');
 });
+
+function getUsers()
+{
+    return [
+        1 => ['name' => 'User1', 'phone' => '1234567890', 'city' => 'Delhi'],
+        2 => ['name' => 'User2', 'phone' => '1234567890', 'city' => 'Dehradun'],
+        3 => ['name' => 'User3', 'phone' => '1234567890', 'city' => 'Hyderabad'],
+    ];
+}
+
+
+// Passing Data Route to view
+Route::get('user', function () {
+    $name = "User 1";
+
+    // 3 Methods for same
+    // return view('users', ['user' => $name, 'city' => "Mumbai"]);
+
+    // return view('users')->with('user', $name)->with('city', 'Delhi');
+
+    // return view('users')->withUser($name)->withCity('Delhi');
+
+    // for Passing Objects of Array
+    $names = getUsers();
+
+    return view('users', ['user' => $names]);
+});
+
+Route::get('/user/{id}', function ($id) {
+    $users = getUsers();
+    abort_if(!isset($users[$id]), 404);
+
+    $user = $users[$id];
+
+    return view('user', ['id' => $user]);
+})->name('view.user');
