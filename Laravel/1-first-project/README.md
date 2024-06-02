@@ -7,6 +7,78 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<hr><br>
+
+## Getting Started
+
+```
+<!-- Global Installation -->
+
+    $ composer global require laravel/installer
+
+    $ laravel new example-app
+
+<!-- Pre Project Installation -->
+
+    $ composer create-project laravel/laravel example-app
+
+    $ cd example-app
+
+    $ php artisan serve
+
+```
+
+<hr><br>
+
+## Controller
+
+```
+    $ php artisan mke:controller UserController     // Create Controller File
+
+    $ php artisan mke:controller TestingController --invokable      // Create a Single Action Controller
+
+    $ php artisan route:list --except-vendor        // show all Controllers and Route
+
+    $ php artisan route:list --path=user    Search all routes of User
+```
+
+<hr><br>
+
+## Databae Migration
+```
+    $ php artisan make:migration create_student_table   // for create schema of student
+
+    $ php artisan migrate   // creating table in DB
+
+    $ php artisan migrate:status    // status of migrate files
+
+    $ php artisan migrate --force   // for production project forcefully migration
+
+    $ php artisan migrate:rollback  // undo (Delete) the last created Table
+
+    $ php artisan migrate:rollback --step=3 // last three migration Delete
+
+    $ php artisan migrate:rollback --batch=3    // #rd migration Delete
+
+    $ php artisan migrate:reset     // Delete all migrate Tables
+
+    $ php artisan migrate:refresh       // Refresh all Migration (first rollback then again Migrate)
+
+    $ php artisan migrate:fresh     // same as Refresh but (First Drop all Tables then Migration)
+
+    $ php artisan make:model Task -m        // Create Model and Migration both file (Task.php)
+```
+
+
+
+
+
+
+
+
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
