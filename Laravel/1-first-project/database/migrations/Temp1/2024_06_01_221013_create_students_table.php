@@ -11,10 +11,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
+            $table->integer('student_id');
             $table->string('name', 30);
-            $table->string('email');
-            $table->float('percentage',3,2);    // Before Decimal digit = 3, After Decimal digit = 2 
+            $table->string('email')->unique()->nullable();
+            $table->float('percentage', 3, 2)->comment('Student Percentage');    // Before Decimal digit = 3, After Decimal digit = 2 
+            $table->primary('student_id');
+            $table->integer('age')->unsigned();
         });
     }
 

@@ -48,6 +48,8 @@
 ```
     $ php artisan make:migration create_student_table   // for create schema of student
 
+    $ php artisan make:migration update_libraries_table --table=libraries // for updating any Table
+
     $ php artisan migrate   // creating table in DB
 
     $ php artisan migrate:status    // status of migrate files
