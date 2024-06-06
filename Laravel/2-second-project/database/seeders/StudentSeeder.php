@@ -67,5 +67,8 @@ class StudentSeeder extends Seeder
                 'email' => fake()->unique()->email()
             ]);
         }
+
+        // factory can also inserted here instead of DatabaseSeeder for Seed
+        // student::factory(10)->create();
     }
 }
