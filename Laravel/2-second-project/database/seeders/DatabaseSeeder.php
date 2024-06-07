@@ -15,12 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // for seeder
-        // $this->call([
-        //     StudentSeeder::class
-        // ]);
+        $this->call([
+                // StudentSeeder::class,
+            UserSeeder::class
+        ]);
 
         // for Factory
         // student::factory()->count(20)->create();
-        student::factory(10)->create();
+        // student::factory(10)->create();
     }
 }
