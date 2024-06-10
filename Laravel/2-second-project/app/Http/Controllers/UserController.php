@@ -81,4 +81,89 @@ class UserController extends Controller
         $users = DB::table('users')->where('id', $id)->get();
         return $users;
     }
+
+    public function addUser()
+    {
+        // $user = DB::table('users')
+        //     // ->insert()
+        //     ->insertOrIgnore([      // returns true or false if Data saved or not
+        //         'name' => "Ram Kumar",
+        //         'email' => 'ram@email.com',
+        //         'age' => 20,
+        //         'city' => 'delhi',
+        //         // 'created_at' => now(),
+        //         // 'updated_at' => now()
+        //     ]);
+
+        $user = DB::table('users')
+            ->upsert(   // check if unique col. already exists then update otherwise create new one
+                [
+                    'name' => "Ram Kumar",
+                    'email' => 'ram@email.com',
+                    'age' => 21,
+                    'city' => 'delhi',
+                ],
+                ['email'],   // unique cols. ['email', 'name']
+                ['city']    // update only 'city' col.   (NOT Imp.)
+            );
+
+        // ->insertGetId([])    returns 'id' when data saved
+
+        if ($user) {
+            echo "<h1>Data Successfully Added</h1>";
+        } else {
+            echo "<h1>Data NOT Saved</h1>";
+        }
+    }
+
+    public function updateUser()
+    {
+        $user = DB::table('users')
+            ->where('id', 1)
+            ->update([
+                'city' => 'Mumbai',
+                'age' => 22
+            ]);
+
+        // $user = DB::table('users')
+        //     ->updateOrInsert(       // check first parameter of Array exists in DB or not, if exist then update otherwise create new
+        //         [
+        //             'city' => 'Mumbai',
+        //             'email' => 'john.doe@example.com',
+        //             'name' => 'John Doe'
+        //         ],
+        //         [
+        //             'age' => 21
+        //         ]
+        //     );
+
+        // $user = DB::table('users')
+        //     ->where('id', 3)
+        // ->increment('age');      // icrement of 1
+        // ->decrement('age');      // decrement of 1
+        // ->increment('age', 5);      // incrment of 5
+        // ->increment('age', 5, ['city' => 'Delhi']);     // 3rd parameter of Array use for update other col.
+        // ->incrementEach([
+        //     'age' => 2,     // increment age by 2
+        //     'votes' => 1    // increment vote by 1
+        // ]);
+    }
+
+    public function deleteUser($id)
+    {
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->delete();
+
+        if ($user) {
+            return redirect()->route('home');
+        }
+    }
+
+    public function deleteAllUser()
+    {
+        $user = DB::table('users')
+            // ->delete();     // 'id' col. not Reset
+            ->truncate();
+    }
 }
