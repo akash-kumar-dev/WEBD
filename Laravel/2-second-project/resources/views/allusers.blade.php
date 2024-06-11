@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-10">
                 <h1 style="text-align: center">All Users List</h1>
-
+                <a href="/newuser" class="btn btn-success btn-sm mb-3">Add new</a>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -40,6 +40,7 @@
                                         class="btn btn-primary btn-sm">View</a></td>
                                 <td><a href="{{ route('delete.user', $user->id) }}"
                                         class="btn btn-danger btn-sm">Delete</a></td>
+                                <td><a href="{{ route('update.page', $user->id) }}" class="btn btn-warning btn-sm">Update</a></td>
                             </tr>
                         @endforeach
                     </tbody>

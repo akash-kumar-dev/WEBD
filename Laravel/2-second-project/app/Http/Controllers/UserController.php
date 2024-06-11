@@ -166,4 +166,47 @@ class UserController extends Controller
             // ->delete();     // 'id' col. not Reset
             ->truncate();
     }
+
+    public function addUser2(Request $req)
+    {
+        $user = DB::table('users')
+            ->insert([
+                'name' => $req->username,
+                'email' => $req->useremail,
+                'age' => $req->userage,
+                'city' => $req->usercity
+            ]);
+
+        if ($user) {
+            return redirect()->route('home');
+        } else {
+            echo "<h1>Data NOT Saved</h1>";
+        }
+    }
+
+    public function updatePage(string $id)
+    {
+        // $user = DB::table('users')->where('id', $id)->get();     // returns Array of Object
+        $user = DB::table('users')->find($id);      // returns Array
+        return view('updateuser', ['data' => $user]);
+    }
+
+    public function update(Request $req, $id)
+    {
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $req->username,
+                'email' => $req->useremail,
+                'age' => $req->userage,
+                'city' => $req->usercity
+            ]);
+
+        if ($user) {
+            return redirect()->route('home');
+        } else {
+            echo "<h1>Data NOT updated</h1>";
+        }
+    }
+
 }

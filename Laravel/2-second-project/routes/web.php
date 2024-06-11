@@ -7,12 +7,19 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [UserController::class, 'showUsers'])->name('home');
+Route::controller(UserController::class)->group(function () {
+    Route::get('/', 'showUsers')->name('home');
+    Route::get('/user/{id}', 'singleUser')->name('view.user');
+    Route::get('/add', 'addUser');
+    Route::get('/update', 'updateUser');
+    Route::get('/delete/{id}', 'deleteUser')->name('delete.user');
+});
 
-Route::get('/user/{id}', [UserController::class, 'singleUser'])->name('view.user');
 
-Route::get('/add', [UserController::class, 'addUser']);
+Route::view('newuser', '/adduser');
 
-Route::get('/update', [UserController::class, 'updateUser']);
-
-Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
+Route::controller(UserController::class)->group(function () {
+    Route::post('/adduser', 'addUser2')->name('addUser');
+    Route::get('/updatepage/{id}', 'updatePage')->name('update.page');
+    Route::put('/update/{id}', 'update')->name('update.user');
+});
