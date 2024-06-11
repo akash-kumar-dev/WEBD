@@ -40,11 +40,19 @@
                                         class="btn btn-primary btn-sm">View</a></td>
                                 <td><a href="{{ route('delete.user', $user->id) }}"
                                         class="btn btn-danger btn-sm">Delete</a></td>
-                                <td><a href="{{ route('update.page', $user->id) }}" class="btn btn-warning btn-sm">Update</a></td>
+                                <td><a href="{{ route('update.page', $user->id) }}"
+                                        class="btn btn-warning btn-sm">Update</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mt-5">
+                    {{-- {{ $data->links() }} --}}
+                    {{ $data->links('pagination::bootstrap-5') }}
+                </div>
+                <div>
+                    Total Users: {{ $data->total() }}
+                </div>
             </div>
         </div>
     </div>

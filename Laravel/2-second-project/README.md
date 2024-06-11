@@ -33,3 +33,7 @@
     $ php artisan migrate:fresh --seed
 
 ```
+
+## pagination
+
+<a href="https://laravel.com/docs/11.x/pagination#simple-pagination">Pagination in Laravel</a>
