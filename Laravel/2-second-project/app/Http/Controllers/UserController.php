@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Rules\Uppercase;
 
 class UserController extends Controller
 {
@@ -191,7 +192,7 @@ class UserController extends Controller
     // {
 
     //     // $req->validate([
-    //     //     'username' => 'required',
+    //     //     'username' => ['required', new Uppercase],
     //     //     'useremail' => 'required|email',
     //     //     'userpass' => 'required|alpha_num|min:6',
     //     //     'userage' => 'required|numeric|min:10',
@@ -235,6 +236,7 @@ class UserController extends Controller
 
     public function addUser2(UserRequest $req)
     {
+        return $req->all();
         $user = DB::table('users')
             ->insert([
                 'name' => $req->username,

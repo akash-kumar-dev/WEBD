@@ -42,8 +42,14 @@
 
 ## Form Request Validation
 
-
 ```
     $ php artisan make:request UserRequest
         (/app/Http/Requests/UserRequest.php)
+```
+
+## Custom Validation Rules
+
+```
+    $ php artisan make:rule Uppercase
+        (/app/Rules/Uppercase.php)
 ```

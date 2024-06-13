@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
+use App\Rules\Uppercase;
+
+use Illuminate\Support\Facades\Validator;
+use Closure;
 
 class UserRequest extends FormRequest
 {
@@ -23,7 +27,16 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required',
+            'username' => ['required', new Uppercase],      // Rule Object custom validation
+            // 'username' => [
+            //     'required',
+            //     'username' => ['required', new Uppercase],
+            //     function (string $attribute, mixed $value, Closure $fail): void {
+            //         if (strtoupper($value) !== $value) {
+            //             $fail('The :attribute must be uppercase.');
+            //         }
+            //     }
+            // ],
             'useremail' => 'required|email',
             'userpass' => 'required|alpha_num|min:6',
             'userage' => 'required|numeric|min:10',
