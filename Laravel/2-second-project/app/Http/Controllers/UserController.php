@@ -180,7 +180,7 @@ class UserController extends Controller
         $users = DB::table('users')
             ->orderBy('name')
             ->paginate(4);
-            // ->fragment('users');     // #users
+        // ->fragment('users');     // #users
         // ->appends(['q2' => 'queryString2', 'test' => 'abc']);       // passing multiple Query Strings
 
         return view('allusers', ['data' => $users]);
@@ -188,6 +188,31 @@ class UserController extends Controller
 
     public function addUser2(Request $req)
     {
+
+        // $req->validate([
+        //     'username' => 'required',
+        //     'useremail' => 'required|email',
+        //     'userpass' => 'required|alpha_num|min:6',
+        //     'userage' => 'required|numeric|min:10',
+        //     'usercity' => 'required'
+        // ]);
+
+        $req->validate(
+            [
+                'username' => 'required',
+                'useremail' => 'required|email',
+                'userpass' => 'required|alpha_num|min:6',
+                'userage' => 'required|numeric|min:10',
+                'usercity' => 'required'
+            ],
+            [
+                'username.required' => 'User Name is required!',
+                'useremail.required' => 'User Email is Required!',
+                'userage.required' => 'user age is required',
+                'userage.min:10' => 'user age must be greater than 10 years'
+            ]
+        );
+        return $req->all();
         $user = DB::table('users')
             ->insert([
                 'name' => $req->username,
