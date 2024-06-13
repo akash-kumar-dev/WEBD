@@ -37,3 +37,13 @@
 ## pagination
 
 <a href="https://laravel.com/docs/11.x/pagination#simple-pagination">Pagination in Laravel</a>
+
+## <a href="https://laravel.com/docs/11.x/validation">Laravel Validation</a>
+
+## Form Request Validation
+
+
+```
+    $ php artisan make:request UserRequest
+        (/app/Http/Requests/UserRequest.php)
+```

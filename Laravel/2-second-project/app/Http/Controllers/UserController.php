@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -186,33 +187,54 @@ class UserController extends Controller
         return view('allusers', ['data' => $users]);
     }
 
-    public function addUser2(Request $req)
+    // public function addUser2(Request $req)
+    // {
+
+    //     // $req->validate([
+    //     //     'username' => 'required',
+    //     //     'useremail' => 'required|email',
+    //     //     'userpass' => 'required|alpha_num|min:6',
+    //     //     'userage' => 'required|numeric|min:10',
+    //     //     'usercity' => 'required'
+    //     // ]);
+
+    //     $req->validate(
+    //         [
+    //             'username' => 'required',
+    //             'useremail' => 'required|email',
+    //             'userpass' => 'required|alpha_num|min:6',
+    //             'userage' => 'required|numeric|min:10',
+    //             'usercity' => 'required'
+    //         ],
+    //         [
+    //             'username.required' => 'User Name is required!',
+    //             'useremail.required' => 'User Email is Required!',
+    //             'userage.required' => 'user age is required',
+    //             'userage.min:10' => 'user age must be greater than 10 years'
+    //         ]
+    //     );
+
+    //     // https://laravel.com/docs/11.x/validation (Fr more about Laravel Validation)
+
+    //     $user = DB::table('users')
+    //         ->insert([
+    //             'name' => $req->username,
+    //             'email' => $req->useremail,
+    //             'age' => $req->userage,
+    //             'city' => $req->usercity
+    //         ]);
+
+    //     // return $req->all();
+
+    //     if ($user) {
+    //         return redirect()->route('home');
+    //     } else {
+    //         echo "<h1>Data NOT Saved</h1>";
+    //     }
+    // }
+
+    public function addUser2(UserRequest $req)
     {
-
-        // $req->validate([
-        //     'username' => 'required',
-        //     'useremail' => 'required|email',
-        //     'userpass' => 'required|alpha_num|min:6',
-        //     'userage' => 'required|numeric|min:10',
-        //     'usercity' => 'required'
-        // ]);
-
-        $req->validate(
-            [
-                'username' => 'required',
-                'useremail' => 'required|email',
-                'userpass' => 'required|alpha_num|min:6',
-                'userage' => 'required|numeric|min:10',
-                'usercity' => 'required'
-            ],
-            [
-                'username.required' => 'User Name is required!',
-                'useremail.required' => 'User Email is Required!',
-                'userage.required' => 'user age is required',
-                'userage.min:10' => 'user age must be greater than 10 years'
-            ]
-        );
-        return $req->all();
         $user = DB::table('users')
             ->insert([
                 'name' => $req->username,
@@ -221,12 +243,17 @@ class UserController extends Controller
                 'city' => $req->usercity
             ]);
 
+        // return $req->all();
+        // return $req->only(['username', 'userage']);
+        return $req->except(['userpass', 'usercity']);
+
         if ($user) {
             return redirect()->route('home');
         } else {
             echo "<h1>Data NOT Saved</h1>";
         }
     }
+
 
     public function updatePage(string $id)
     {
