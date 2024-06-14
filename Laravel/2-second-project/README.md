@@ -53,3 +53,9 @@
     $ php artisan make:rule Uppercase
         (/app/Rules/Uppercase.php)
 ```
+
+## Resource Controller
+
+```
+    $ php artisan make:controller UserController --resource
+```

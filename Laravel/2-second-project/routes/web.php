@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController2;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -23,3 +25,21 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/updatepage/{id}', 'updatePage')->name('update.page');
     Route::put('/update/{id}', 'update')->name('update.user');
 });
+
+// Route::resource('users2', UserController2::class);
+
+// Route::resource('users2', UserController2::class)->only([
+//     'create',
+//     'update',
+//     'show'
+// ]);
+// samew as ->except([]) method
+
+// chnaging default names
+Route::resource('users2', UserController2::class)->names([
+    'create' => 'users2.build',
+    'show' => 'users2.view'
+]);
+
+// Nested Resource Controller
+Route::resource('users2.comment', CommentController::class);
