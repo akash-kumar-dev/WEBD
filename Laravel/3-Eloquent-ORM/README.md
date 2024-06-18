@@ -6,3 +6,13 @@
     $ php artisan make:model user --controller --resource
     (Creates Model and Controller files)
 ```
+
+```
+    $ php artisan make:controller StudentController --resource
+
+    $ php artisan make:controller ContactController
+
+    $ php artisan make:model Student
+
+    $ php artisan make:model Contact
+```

@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Contact;
+use App\Models\Student;
+use Illuminate\Http\Request;
+
+class ContactController extends Controller
+{
+    public function show()
+    {
+        // $contacts = Contact::get();
+        $contacts = Contact::with('get_student')->get();
+
+        return $contacts;
+    }
+}
