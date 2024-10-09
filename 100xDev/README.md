@@ -3,3 +3,7 @@
 
 ## Week 2
 1. map, filter
+
+## Week 3
+- Neon Tech (postgres DB) `https://neon.tech/`
+- Middlewares, Global Catches, and Input Validation
