@@ -7,3 +7,6 @@
 ## Week 3
 - Neon Tech (postgres DB) `https://neon.tech/`
 - Middlewares, Global Catches, and Input Validation
+- Fetch, Authentication and MongoDB
+- DOM
+
