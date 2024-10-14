@@ -10,3 +10,6 @@
 - Fetch, Authentication and MongoDB
 - DOM
 
+## Week 4
+- DOM
+

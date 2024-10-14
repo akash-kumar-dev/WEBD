@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+
+    <script>
+        // SUM
+        function calculateSum() {
+            const a = document.getElementById("first").value;
+            const b = document.getElementById("second").value;
+            const ans = document.getElementById("finalSum")
+            //ans.innerHTML = a+b; // string 
+            ans.innerHTML = parseInt(a) + parseInt(b);
+        }
+    </script>
+
+    <script>
+        let timeout;
+        function debouncePopulateDiv() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                populateDiv();
+            }, 1000);
+        }
+
+        function populateDiv() {
+            const a = document.getElementById("first").value;
+            const b = document.getElementById("second").value;
+
+            fetch("https://sum-server.100xdevs.com?a=" + a + "&b=" + b)
+                .then(function (response) {
+                    response.text()
+                        .then(function (ans) {
+                            document.getElementById("finalSum").innerHTML = ans;
+                        })
+                });
+
+            // axios
+            // const response = await axios.get("https://sum-server.100xdevs.com?a=" + a + "&b=" + b);
+            // response.data;
+
+            async function populateDiv2() {
+                const a = document.getElementById("first").value;
+                const b = document.getElementById("second").value;
+
+                const response = await fetch("https://sum-server.100xdevs.com?a=" + a + "&b=" + b);
+                const ans = await response.text();
+                document.getElementById("finalSum").innerHTML = ans;
+            }
+        }
+    </script>
+
+    <div style="text-align: center; display: block;">
+        <!-- <input id="first" type="text" placeholder="Enter Number"> <br> <br>
+        <input id="second" type="text" placeholder="Enter Number"> <br> <br> -->
+
+        <input oninput="debouncePopulateDiv()" id="first" type="text" placeholder="Enter first Number"> <br> <br>
+        <input oninput="debouncePopulateDiv()" id="second" type="text" placeholder="Enter second Number"> <br> <br>
+
+
+        <button onclick="calculateSum()"> Calculate Sum</button> <br> <br>
+        <div id="finalSum"></div>
+    </div>
+
+
+</body>
+
+</html>
