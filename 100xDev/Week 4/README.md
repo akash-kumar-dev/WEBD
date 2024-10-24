@@ -1,8 +1,8 @@
 ## Week 4
 
-#### _3.1_DOM
+#### _4.1_DOM
 
-### 3.2 React Foundation
+### 4.2 React Foundation
 Create React project:
 ```
 npm create vite@latest
@@ -20,3 +20,7 @@ npm run build
 ```
 
 The production-ready files will be generated in the `dist` folder.
+
+### 4.3 CRUD Operations
+- MongoDB Deep Dive & Assignments
+- PRISMA - Industry standard ORM (like Mongoose)
