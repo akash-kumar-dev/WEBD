@@ -13,3 +13,7 @@
 ## Week 4
 - DOM
 
+## Week 5
+
+## Week 6
+- re-Rendering, Memo, Wrapper component in React
