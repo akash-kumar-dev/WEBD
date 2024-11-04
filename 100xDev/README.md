@@ -17,3 +17,4 @@
 
 ## Week 6
 - re-Rendering, Memo, Wrapper component in React
+- useState, useEffect, useMemo, useCallback
