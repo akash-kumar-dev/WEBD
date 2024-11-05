@@ -17,7 +17,6 @@ const _4_ContextAPI = () => {
   )
 };
 
-
 function Count({setCount}){
   return <div>
      <CounterRender />
