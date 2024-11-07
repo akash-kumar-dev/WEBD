@@ -22,3 +22,4 @@
 ## Week 7
 - Week 7.1: Routing, Lazy Loading, props drilling, Context API
 - Week 7.2: State Management, Recoil
+- Week 7.3: Recoil Atoms, Recoil Selectors
