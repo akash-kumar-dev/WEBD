@@ -1,0 +1,12 @@
+import Cards from "./_01_Cards"
+
+function App() {
+
+  return (
+    <>
+      < Cards title="Amount Pending" amount="23,450" orderCount={12} />
+    </>
+  )
+}
+
+export default App
