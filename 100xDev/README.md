@@ -27,3 +27,7 @@
 ## Week 8
 - Tailwind CSS
 - Axios & Fetch
+- ***Paytm like App*** (Frontend & Backend)
+
+## Week 9
+- custom Hooks
