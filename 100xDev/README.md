@@ -31,3 +31,4 @@
 
 ## Week 9
 - custom Hooks
+- TypeScript, Function, Interfaces, Array
