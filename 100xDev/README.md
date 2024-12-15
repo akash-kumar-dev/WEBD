@@ -33,3 +33,7 @@
 - custom Hooks
 - TypeScript, Function, Interfaces, Array
 - Enums, Generics
+
+## Week 10
+- postgreSQL
+- prisma ORM

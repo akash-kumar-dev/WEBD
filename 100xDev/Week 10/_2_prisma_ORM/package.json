@@ -1,0 +1,21 @@
+{
+  "name": "_2_prisma_orm",
+  "version": "1.0.0",
+  "description": "ORM stands for Object-Relational Mapping, a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, for instance, a “virtual object database” that can be used from within the programming language. - ORM are used to abstract the complexity of the underlying database into simple,more easily managed objects with in the code - ORM let you easily interact with the database using an object-oriented interface (without worrying about the underlying SQL code)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prisma": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@prisma/client": "6.0.1"
+  }
+}
