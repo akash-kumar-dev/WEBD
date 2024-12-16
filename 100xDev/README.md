@@ -37,3 +37,6 @@
 ## Week 10
 - postgreSQL
 - prisma ORM
+
+## Week 11
+- serverless (cloudflare workers, hono)
