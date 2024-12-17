@@ -40,3 +40,6 @@
 
 ## Week 11
 - serverless (cloudflare workers, hono)
+
+#### Week 12
+- typeeScript API (pick, partial, Readonly), Reacord, Map)
