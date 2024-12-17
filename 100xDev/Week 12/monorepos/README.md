@@ -6,3 +6,9 @@ Turbo is a monorepo build system. [turbo.build](https://turbo.build/)
 ```bash
 npm create-turbo@latest
 ```
+
+#### run 
+```bash
+cd /apps/web/
+yarn dev
+```
