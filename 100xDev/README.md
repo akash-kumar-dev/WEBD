@@ -41,7 +41,10 @@
 ## Week 11
 - serverless (cloudflare workers, hono)
 
-#### Week 12
+## Week 12
 - typeeScript API (pick, partial, Readonly), Reacord, Map)
 - Monorepos (turbo)
 - dokcer
+
+## Week 13
+- Medium Blog App Project
