@@ -51,3 +51,4 @@
 
 ## Week 14
 - Next.js
+- Data fetching, Loader, Database, ServerActions

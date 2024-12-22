@@ -19,3 +19,12 @@ Downside:
 ```bash
 npx create-next-app@latest 
 ```
+
+
+#### Backend
+- Data Fetching
+- Loader
+- API routes
+- Database
+- Better fetches
+- Server Actions
