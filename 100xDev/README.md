@@ -48,3 +48,6 @@
 
 ## Week 13
 - Medium Blog App Project
+
+## Week 14
+- Next.js
